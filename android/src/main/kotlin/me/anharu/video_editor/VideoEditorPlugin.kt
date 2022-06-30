@@ -24,7 +24,7 @@ import io.flutter.plugin.common.PluginRegistry
 
 
 /** VideoEditorPlugin */
-abstract class VideoEditorPlugin : FlutterPlugin, MethodCallHandler, PluginRegistry.RequestPermissionsResultListener, ActivityAware {
+public class VideoEditorPlugin : FlutterPlugin, MethodCallHandler, PluginRegistry.RequestPermissionsResultListener, ActivityAware {
     var activity: Activity? = null
     private var methodChannel: MethodChannel? = null
     private val myPermissionCode = 34264
@@ -102,8 +102,8 @@ abstract class VideoEditorPlugin : FlutterPlugin, MethodCallHandler, PluginRegis
         onDetachedFromActivity()
     }
 
-    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>?,
-                                            grantResults: IntArray?): Boolean {
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>,
+                                            grantResults: IntArray): Boolean {
         when (requestCode) {
             myPermissionCode -> {
                 // Only return true if handling the requestCode
